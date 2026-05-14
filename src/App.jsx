@@ -9,14 +9,11 @@ import About from "./components/About"
 import TeamCard from "./components/common/TeamCard"
 import Reviews from "./components/Reviews"
 import Contact from "./components/Contact"
-
-
-
-
+import Footer from "./components/Footer"
 
 
 function App() {
-  
+
   const [data] = useState(db);
 
 
@@ -24,36 +21,36 @@ function App() {
 
   return (
     <>
-      <Header/>
+      <Header />
 
-      <Nav/>
+      <Nav />
 
-      {
-      // contenido principal
-      }
       <main>
         <div id="video-contenedor">
-            <div id="video-grisaceo">
-                <p id="video-texto">Somos Hoshi-Store</p>
-            </div>
-            <video src={tienda_online} id="video-tienda" autoPlay muted loop></video>
+          <div id="video-grisaceo">
+            <p id="video-texto">Somos Hoshi-Store</p>
+          </div>
+          <video src={tienda_online} id="video-tienda" autoPlay muted loop></video>
         </div>
 
-        
-        {
-        // catalogo de productos
-        }
-        <ProductCatalog data={data}/>
+        <ProductCatalog data={data} />
 
-        <PurchaseProcess/>
+        <PurchaseProcess />
 
-        <About/>
+        <About />
 
-        <Reviews/>
+        <Reviews />
 
-        <Contact/>
+        <Contact />
 
       </main>
+
+      <Footer />
+
+      <a href="#" class="boton-whatsapp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/960px-WhatsApp.svg.png" alt="Imagen de logo de Whatsapp" /></a>
+      <a href="#encabezado" class="boton-subir">
+        <img src="./img/flecha.png" alt="Botón de subir hacia arriba" id="img-boton-subir" />
+      </a>
 
 
     </>
