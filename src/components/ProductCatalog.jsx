@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-function ProductCatalog({ data }) {
+function ProductCatalog({ data, addToCart }) {
 
 
 
@@ -52,7 +52,7 @@ function ProductCatalog({ data }) {
                                                                 :
                                                                 <p className="producto-precio">${producto.precio.toFixed(2)}</p>
                                                         }
-                                                        <button className="producto-btn">Agregar al carrito</button>
+                                                        <button className="producto-btn" onClick={()=>{addToCart(producto)}}>Agregar al carrito</button>
                                                     </article>
 
                                             ))

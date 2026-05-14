@@ -16,12 +16,21 @@ function App() {
 
   const [data] = useState(db);
 
+  const [cart,useCart] = useState([]);
 
+  const addToCart = (producto) =>{
 
+    // Le añado la propiedad cantidad en 1
+    producto.quantity = 1;
+
+    // Se lo establezco como nuevo valor en carrito
+    useCart( (prevCart)  => [...prevCart,producto] )
+
+  }
 
   return (
     <>
-      <Header />
+      <Header cart={cart} />
 
       <Nav />
 
@@ -33,7 +42,7 @@ function App() {
           <video src={tienda_online} id="video-tienda" autoPlay muted loop></video>
         </div>
 
-        <ProductCatalog data={data} />
+        <ProductCatalog data={data}  addToCart={addToCart}/>
 
         <PurchaseProcess />
 
