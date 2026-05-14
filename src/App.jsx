@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { tienda_online } from "./barrels/assets"
+import { flecha, tienda_online } from "./barrels/assets"
 import Header from "./components/Header"
 import Nav from "./components/Nav"
 import ProductCatalog from "./components/ProductCatalog"
@@ -47,9 +47,9 @@ function App() {
 
       <Footer />
 
-      <a href="#" class="boton-whatsapp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/960px-WhatsApp.svg.png" alt="Imagen de logo de Whatsapp" /></a>
-      <a href="#encabezado" class="boton-subir">
-        <img src="./img/flecha.png" alt="Botón de subir hacia arriba" id="img-boton-subir" />
+      <a href="#" className="boton-whatsapp"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/960px-WhatsApp.svg.png" alt="Imagen de logo de Whatsapp" /></a>
+      <a href="#encabezado" className="boton-subir">
+        <img src={flecha} alt="Botón de subir hacia arriba" id="img-boton-subir" />
       </a>
 
 

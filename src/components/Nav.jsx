@@ -32,6 +32,42 @@ function Nav() {
             <button type="button" id="carrito-boton">
                 <img src={carrito} alt="Imagen de carrito de compras" id="carrito-compras"/>
             </button>
+
+            <div id="carrito">
+                <table className="w-100 table">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_ep3cqf6n3h56t1cnu6qq84oq78/-S897-FWEBP" alt="" /></td>
+                            <td>HUNTER X HUNTER N.1</td>
+                            <td>$159.99</td>
+                            <td>
+                                <div className="botones-cantidad">
+                                    <button type="button">-</button>
+                                    <span>1</span>
+                                    <button type="button">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div className="carrito-total-container">
+                    <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">999.00</span></p>
+                </div>
+                <div id="botones-carrito">
+                    <button type="button" className="botones-accion-carrito vaciar">Vaciar carrito</button>
+                    <button type="button" className="botones-accion-carrito comprar">Comprar</button>
+                </div>
+            </div>
+
         </div>
 
     </nav>
