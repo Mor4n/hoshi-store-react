@@ -1,12 +1,15 @@
 
 import React from 'react'
+import { carrito, logo, lupa } from '../barrels/assets'
+
+
 
 function Nav() {
   return (
     <>
         <nav id="navegacion">
         <h1 id="logo">
-            <a href="#encabezado"><img src="./img/logo.png" alt="Logo de Hoshi-Store" id="logo-img"/></a>
+            <a href="#encabezado"><img src={logo} alt="Logo de Hoshi-Store" id="logo-img"/></a>
         </h1>
 
 
@@ -21,13 +24,13 @@ function Nav() {
         <div class="buscar-contenedor">
             <input type="text" placeholder="Ingrese aquí el producto a buscar" id="buscar-input"/>
             <button type="button" id="buscar-boton">
-                <img src="./img/lupa.png" alt="Ícono de lupa" id="buscar-imagen"/>
+                <img src={lupa} alt="Ícono de lupa" id="buscar-imagen"/>
             </button>
         </div>
 
         <div class="carrito-contenedor">
             <button type="button" id="carrito-boton">
-                <img src="./img/carrito.png" alt="Imagen de carrito de compras" id="carrito-compras"/>
+                <img src={carrito} alt="Imagen de carrito de compras" id="carrito-compras"/>
             </button>
         </div>
 

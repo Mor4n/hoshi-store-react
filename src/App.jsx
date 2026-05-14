@@ -1,4 +1,5 @@
 import Header from "./components/Header"
+import Nav from "./components/Nav"
 
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <>
       <Header/>
 
-      
+      <Nav/>
 
 
     </>
