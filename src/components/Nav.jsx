@@ -1,10 +1,14 @@
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { carrito, logo, lupa } from '../barrels/assets'
 
 
 
 function Nav( {cart} ) {
+
+    const totalToPay = useMemo( ()=>  cart.reduce(  (acumulador,itemActual)=> acumulador + (itemActual.precio * itemActual.cantidad)
+    ,0 )  ,[cart])
+
 
   return (
     <>
@@ -65,7 +69,7 @@ function Nav( {cart} ) {
                     </tbody>
                 </table>
                 <div className="carrito-total-container">
-                    <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">999.00</span></p>
+                    <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">{totalToPay}</span></p>
                 </div>
                 <div id="botones-carrito">
                     <button type="button" className="botones-accion-carrito vaciar">Vaciar carrito</button>
