@@ -5,6 +5,8 @@ import Nav from "./components/Nav"
 import ProductCatalog from "./components/ProductCatalog"
 import db from "./data/db"
 import PurchaseProcess from "./components/PurchaseProcess"
+import About from "./components/About"
+import TeamCard from "./components/common/TeamCard"
 
 
 
@@ -42,6 +44,9 @@ function App() {
         <ProductCatalog data={data}/>
 
         <PurchaseProcess/>
+
+        <About/>
+
 
 
       </main>
