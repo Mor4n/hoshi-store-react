@@ -4,7 +4,8 @@ import { carrito, logo, lupa } from '../barrels/assets'
 
 
 
-function Nav() {
+function Nav( {cart} ) {
+
   return (
     <>
         <nav id="navegacion">
@@ -45,18 +46,22 @@ function Nav() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="https://d14d9vp3wdof84.cloudfront.net/image/589816272436/image_ep3cqf6n3h56t1cnu6qq84oq78/-S897-FWEBP" alt="" /></td>
-                            <td>HUNTER X HUNTER N.1</td>
-                            <td>$159.99</td>
+                        {
+                        cart.map( item => (
+                        <tr key={item.id}>
+                            <td><img src={item.imagen} alt="" /></td>
+                            <td>{item.titulo}</td>
+                            <td>${item.precio.toFixed(2)}</td>
                             <td>
                                 <div className="botones-cantidad">
                                     <button type="button">-</button>
-                                    <span>1</span>
+                                    <span>{item.cantidad}</span>
                                     <button type="button">+</button>
                                 </div>
                             </td>
                         </tr>
+                            ))
+                        }
                     </tbody>
                 </table>
                 <div className="carrito-total-container">

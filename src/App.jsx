@@ -21,7 +21,7 @@ function App() {
   const addToCart = (producto) =>{
 
     // Le añado la propiedad cantidad en 1
-    producto.quantity = 1;
+    producto.cantidad = 1;
 
     // Se lo establezco como nuevo valor en carrito
     useCart( (prevCart)  => [...prevCart,producto] )
@@ -30,9 +30,9 @@ function App() {
 
   return (
     <>
-      <Header cart={cart} />
+      <Header/>
 
-      <Nav />
+      <Nav  cart={cart}  />
 
       <main>
         <div id="video-contenedor">
