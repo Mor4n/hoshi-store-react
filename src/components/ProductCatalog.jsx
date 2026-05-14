@@ -46,11 +46,11 @@ function ProductCatalog({ data }) {
                                                             producto.descuento != null ?
                                                                 <div className="producto-precios-div">
                                                                     <p className="producto-descuento">-{producto.descuento}%</p>
-                                                                    <p className="producto-precio">${producto.precio}</p>
-                                                                    <p className="producto-precio-anterior"><s>${producto.precioAnterior}</s></p>
+                                                                    <p className="producto-precio">${producto.precio.toFixed(2)}</p>
+                                                                    <p className="producto-precio-anterior"><s>${producto.precioAnterior.toFixed(2)}</s></p>
                                                                 </div>
                                                                 :
-                                                                <p className="producto-precio">${producto.precio}</p>
+                                                                <p className="producto-precio">${producto.precio.toFixed(2)}</p>
                                                         }
                                                         <button className="producto-btn">Agregar al carrito</button>
                                                     </article>

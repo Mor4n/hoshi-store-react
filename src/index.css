@@ -230,6 +230,7 @@ section p{
     margin: 2%;
 }
 .catalogo-contenedor h3{
+    text-transform: capitalize;
     font-size: 25px;
     font-weight: 900;
 }
