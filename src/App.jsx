@@ -7,6 +7,7 @@ import db from "./data/db"
 import PurchaseProcess from "./components/PurchaseProcess"
 import About from "./components/About"
 import TeamCard from "./components/common/TeamCard"
+import Reviews from "./components/Reviews"
 
 
 
@@ -47,7 +48,7 @@ function App() {
 
         <About/>
 
-
+        <Reviews/>
 
       </main>
 
