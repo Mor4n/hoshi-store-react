@@ -69,7 +69,7 @@ function Nav( {cart,increaseQuantity,decreaseQuantity} ) {
                     </tbody>
                 </table>
                 <div className="carrito-total-container">
-                    <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">{totalToPay}</span></p>
+                    <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">{totalToPay.toFixed(2)}</span></p>
                 </div>
                 <div id="botones-carrito">
                     <button type="button" className="botones-accion-carrito vaciar">Vaciar carrito</button>
