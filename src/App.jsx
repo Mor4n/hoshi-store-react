@@ -105,6 +105,12 @@ function App() {
 
   }
 
+  const removeProduct = (id) =>{
+
+    setCart( (prevState) => prevState.filter( item => item.id!== id))
+
+  }
+
 
 
   return (
@@ -116,6 +122,7 @@ function App() {
         decreaseQuantity={decreaseQuantity}
         increaseQuantity={increaseQuantity}
         emptyCart={emptyCart}
+        removeProduct={removeProduct}
          />
 
       <main>

@@ -4,7 +4,7 @@ import { carrito, logo, lupa } from '../barrels/assets'
 
 
 
-function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart} ) {
+function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart, removeProduct} ) {
 
     const isEmpty = useMemo( () => cart.length===0 ,[cart])
 
@@ -65,6 +65,7 @@ function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart} ) {
                                     <button type="button" onClick={()=>decreaseQuantity(item.id)} >-</button>
                                     <span>{item.cantidad}</span>
                                     <button type="button" onClick={()=>increaseQuantity(item.id)}>+</button>
+                                    <button type="button" onClick={()=>removeProduct(item.id)}>✖</button>
                                 </div>
                             </td>
                         </tr>
