@@ -29,20 +29,26 @@ function App() {
     if (findProductIndex < 0) {
       console.log("No existe, añadiendo");
 
-      // Le añado la propiedad cantidad en 1
-      producto.cantidad = 1;
-
-      // Se lo establezco como nuevo valor en carrito
-      setCart((prevCart) => [...prevCart, producto]);
+      // Creo copia del producto y le agrego la cantidad, esto para no romper inmutabilidad
+    setCart((prevCart) => [...prevCart, { ...producto, cantidad: 1 }]);
     } else {
 
       console.log("Ya existe, añadiendo cantidad");
 
-      const carritoActualizado = [...cart];
+      
+      setCart( (prevState)=> prevState.map( ele=>
+    {
+        if(ele.id === producto.id && ele.cantidad< MAX_ITEMS){
 
-      carritoActualizado[findProductIndex].cantidad +=1
+          return{
+            ...ele,
+            cantidad: ele.cantidad + 1
+          }
 
-      setCart(carritoActualizado);
+        }
+        return ele;
+    }
+    ))
       
     }
   };
