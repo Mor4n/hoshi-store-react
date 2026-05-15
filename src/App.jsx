@@ -16,9 +16,15 @@ function App() {
 
   const [cart, setCart] = useState([]);
 
+  const MIN_ITEMS = 1;
+  const MAX_ITEMS = 5;
+
   const addToCart = (producto) => {
     // Revisar si ya existe el producto en el carrito
     const findProductIndex = cart.findIndex((item) => item.id === producto.id);
+
+    // si llego a la cantidad maxima, que retorne
+    // if(cart[findProductIndex].cantidad===MAX_ITEMS) return;
 
     if (findProductIndex < 0) {
       console.log("No existe, añadiendo");
@@ -29,7 +35,7 @@ function App() {
       // Se lo establezco como nuevo valor en carrito
       setCart((prevCart) => [...prevCart, producto]);
     } else {
-      
+
       console.log("Ya existe, añadiendo cantidad");
 
       const carritoActualizado = [...cart];
@@ -41,11 +47,61 @@ function App() {
     }
   };
 
+  const decreaseQuantity = (id)=>{
+
+    setCart( (prevState)=> prevState.map( item => 
+
+        {
+
+            if(item.id === id && item.cantidad>MIN_ITEMS){
+              return{
+                ...item,
+                cantidad: item.cantidad - 1
+
+              }
+
+            }
+            return item;
+
+
+        }
+
+      ))
+
+
+
+  }
+
+  const increaseQuantity = (id)=>{
+
+    setCart( (prevState)=> prevState.map( ele=>
+    {
+        if(ele.id === id && ele.cantidad< MAX_ITEMS){
+
+          return{
+            ...ele,
+            cantidad: ele.cantidad + 1
+          }
+
+        }
+        return ele;
+
+
+    }
+
+    ))
+    
+  }
+
   return (
     <>
       <Header />
 
-      <Nav cart={cart} />
+      <Nav 
+        cart={cart}
+        decreaseQuantity={decreaseQuantity}
+        increaseQuantity={increaseQuantity}
+         />
 
       <main>
         <div id="video-contenedor">
@@ -61,7 +117,10 @@ function App() {
           ></video>
         </div>
 
-        <ProductCatalog data={data} addToCart={addToCart} />
+        <ProductCatalog 
+        data={data} 
+        addToCart={addToCart}
+        />
 
         <PurchaseProcess />
 

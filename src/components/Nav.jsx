@@ -4,7 +4,7 @@ import { carrito, logo, lupa } from '../barrels/assets'
 
 
 
-function Nav( {cart} ) {
+function Nav( {cart,increaseQuantity,decreaseQuantity} ) {
 
     const totalToPay = useMemo( ()=>  cart.reduce(  (acumulador,itemActual)=> acumulador + (itemActual.precio * itemActual.cantidad)
     ,0 )  ,[cart])
@@ -58,9 +58,9 @@ function Nav( {cart} ) {
                             <td>${item.precio.toFixed(2)}</td>
                             <td>
                                 <div className="botones-cantidad">
-                                    <button type="button">-</button>
+                                    <button type="button" onClick={()=>decreaseQuantity(item.id)} >-</button>
                                     <span>{item.cantidad}</span>
-                                    <button type="button">+</button>
+                                    <button type="button" onClick={()=>increaseQuantity(item.id)}>+</button>
                                 </div>
                             </td>
                         </tr>
