@@ -4,7 +4,9 @@ import { carrito, logo, lupa } from '../barrels/assets'
 
 
 
-function Nav( {cart,increaseQuantity,decreaseQuantity} ) {
+function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart} ) {
+
+    const isEmpty = useMemo( () => cart.length===0 ,[cart])
 
     const totalToPay = useMemo( ()=>  cart.reduce(  (acumulador,itemActual)=> acumulador + (itemActual.precio * itemActual.cantidad)
     ,0 )  ,[cart])
@@ -39,7 +41,9 @@ function Nav( {cart,increaseQuantity,decreaseQuantity} ) {
             </button>
 
             <div id="carrito">
-                <table className="w-100 table">
+                { !isEmpty ?(
+                    <>
+                    <table className="w-100 table">
                     <thead>
                         <tr>
                             <th>Imagen</th>
@@ -72,9 +76,12 @@ function Nav( {cart,increaseQuantity,decreaseQuantity} ) {
                     <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">{totalToPay.toFixed(2)}</span></p>
                 </div>
                 <div id="botones-carrito">
-                    <button type="button" className="botones-accion-carrito vaciar">Vaciar carrito</button>
+                    <button type="button" className="botones-accion-carrito vaciar" onClick={()=>emptyCart()}>Vaciar carrito</button>
                     <button type="button" className="botones-accion-carrito comprar">Comprar</button>
                 </div>
+                    </>
+            
+            ): <p>Agregue productos a su carrito!</p>}
             </div>
 
         </div>

@@ -93,6 +93,14 @@ function App() {
     
   }
 
+  const emptyCart = () =>{
+
+    setCart([]);
+
+  }
+
+
+
   return (
     <>
       <Header />
@@ -101,6 +109,7 @@ function App() {
         cart={cart}
         decreaseQuantity={decreaseQuantity}
         increaseQuantity={increaseQuantity}
+        emptyCart={emptyCart}
          />
 
       <main>
