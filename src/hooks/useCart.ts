@@ -1,5 +1,5 @@
 import db from "../data/db";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 const useCart = () => {
     const [data] = useState(db);
