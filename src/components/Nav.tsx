@@ -1,10 +1,23 @@
-
-import React, { useMemo } from 'react'
 import { carrito, logo, lupa } from '../barrels/assets'
+import type { ProductCartItem,ProductType } from '../types/types'
 
+type NavProps ={
+    cart:ProductCartItem[],
+    increaseQuantity:(id:ProductType['id'])=>void,
+    decreaseQuantity:(id:ProductType['id'])=>void ,
+    removeProduct: (id: ProductType['id']) => void,
+    emptyCart:()=>void,
+    isEmpty:boolean,
+    totalToPay:number,
+}
 
-
-function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart, removeProduct, isEmpty, totalToPay} ) {
+function Nav( {cart,
+    increaseQuantity,
+    decreaseQuantity ,
+    emptyCart,
+    removeProduct,
+    isEmpty,
+    totalToPay}: NavProps ) {
 
 
 

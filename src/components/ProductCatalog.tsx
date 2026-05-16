@@ -1,7 +1,12 @@
 
-import React from 'react'
+import type { ProductCatalogType,ProductType } from '../types/types';
 
-function ProductCatalog({ data, addToCart }) {
+type ProductCatalogProps ={
+    data: ProductCatalogType,
+    addToCart: (item: ProductType) => void 
+}
+
+function ProductCatalog({ data, addToCart }: ProductCatalogProps) {
 
 
 
@@ -47,7 +52,7 @@ function ProductCatalog({ data, addToCart }) {
                                                                 <div className="producto-precios-div">
                                                                     <p className="producto-descuento">-{producto.descuento}%</p>
                                                                     <p className="producto-precio">${producto.precio.toFixed(2)}</p>
-                                                                    <p className="producto-precio-anterior"><s>${producto.precioAnterior.toFixed(2)}</s></p>
+                                                                    <p className="producto-precio-anterior"><s>${producto.precioAnterior?.toFixed(2)}</s></p>
                                                                 </div>
                                                                 :
                                                                 <p className="producto-precio">${producto.precio.toFixed(2)}</p>
