@@ -1,7 +1,8 @@
 import { imgPower,imgReze } from "../barrels/assets";
+import type {ProductCatalogType} from "../types/types";
 
 
-const data = {
+const data: ProductCatalogType = {
   manga: [
     {
       id: 1,
