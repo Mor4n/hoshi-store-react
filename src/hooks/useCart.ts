@@ -1,15 +1,39 @@
 import db from "../data/db";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { ProductType,ProductCartItem } from "../types/types";
 
 const useCart = () => {
     const [data] = useState(db);
 
-    const [cart, setCart] = useState([]);
+    const initialCart = () : ProductCartItem[]   =>{
+    const cartLocalStorage = localStorage.getItem("cart");
+    // Si el carrito cargado del localstorage tiene algo entonces
+    if(cartLocalStorage){
+      // lo devuelvo como objeto para que sea el valor inicial
+      return JSON.parse(cartLocalStorage)
+    }
+    else{
+      // si no, le pongo el valor inicial de []
+      return []
+    }
+
+  }
+  
+    const [cart, setCart] = useState(initialCart);
 
     const MIN_ITEMS = 1;
     const MAX_ITEMS = 5;
 
-    const addToCart = (producto) => {
+    useEffect(
+    ()=>{
+      localStorage.setItem("cart",JSON.stringify(cart));
+
+    }
+    ,[cart]
+  )
+
+
+    const addToCart = (producto: ProductType) => {
         // Revisar si ya existe el producto en el carrito
         const findProductIndex = cart.findIndex((item) => item.id === producto.id);
 
@@ -38,7 +62,7 @@ const useCart = () => {
         }
     };
 
-    const decreaseQuantity = (id) => {
+    const decreaseQuantity = (id:ProductType['id']) => {
         setCart((prevState) =>
             prevState.map((item) => {
                 if (item.id === id && item.cantidad > MIN_ITEMS) {
@@ -52,7 +76,7 @@ const useCart = () => {
         );
     };
 
-    const increaseQuantity = (id) => {
+    const increaseQuantity = (id:ProductType['id']) => {
         setCart((prevState) =>
             prevState.map((ele) => {
                 if (ele.id === id && ele.cantidad < MAX_ITEMS) {
@@ -70,7 +94,7 @@ const useCart = () => {
         setCart([]);
     };
 
-    const removeProduct = (id) => {
+    const removeProduct = (id: ProductType['id']) => {
         setCart((prevState) => prevState.filter((item) => item.id !== id));
     };
 

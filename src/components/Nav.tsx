@@ -55,7 +55,7 @@ function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart, removeProduct
                         <tr key={item.id}>
                             <td><img src={item.imagen} alt="" /></td>
                             <td>{item.titulo}</td>
-                            <td>${item.precio.toFixed(2)}</td>
+                            <td>${item.precio}</td>
                             <td>
                                 <div className="botones-cantidad">
                                     <button type="button" onClick={()=>decreaseQuantity(item.id)} >-</button>
