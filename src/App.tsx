@@ -1,117 +1,18 @@
-import { useState } from "react";
 import { flecha, tienda_online } from "./barrels/assets";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import ProductCatalog from "./components/ProductCatalog";
-import db from "./data/db";
 import PurchaseProcess from "./components/PurchaseProcess";
 import About from "./components/About";
 import TeamCard from "./components/common/TeamCard";
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import  useCart  from "./hooks/useCart";
 
 function App() {
-  const [data] = useState(db);
-
-  const [cart, setCart] = useState([]);
-
-  const MIN_ITEMS = 1;
-  const MAX_ITEMS = 5;
-
-  const addToCart = (producto) => {
-    // Revisar si ya existe el producto en el carrito
-    const findProductIndex = cart.findIndex((item) => item.id === producto.id);
-
-    // si llego a la cantidad maxima, que retorne
-    // if(cart[findProductIndex].cantidad===MAX_ITEMS) return;
-
-    if (findProductIndex < 0) {
-      console.log("No existe, añadiendo");
-
-      // Creo copia del producto y le agrego la cantidad, esto para no romper inmutabilidad
-    setCart((prevCart) => [...prevCart, { ...producto, cantidad: 1 }]);
-    } else {
-
-      console.log("Ya existe, añadiendo cantidad");
-
-      
-      setCart( (prevState)=> prevState.map( ele=>
-    {
-        if(ele.id === producto.id && ele.cantidad< MAX_ITEMS){
-
-          return{
-            ...ele,
-            cantidad: ele.cantidad + 1
-          }
-
-        }
-        return ele;
-    }
-    ))
-      
-    }
-  };
-
-  const decreaseQuantity = (id)=>{
-
-    setCart( (prevState)=> prevState.map( item => 
-
-        {
-
-            if(item.id === id && item.cantidad>MIN_ITEMS){
-              return{
-                ...item,
-                cantidad: item.cantidad - 1
-
-              }
-
-            }
-            return item;
-
-
-        }
-
-      ))
-
-
-
-  }
-
-  const increaseQuantity = (id)=>{
-
-    setCart( (prevState)=> prevState.map( ele=>
-    {
-        if(ele.id === id && ele.cantidad< MAX_ITEMS){
-
-          return{
-            ...ele,
-            cantidad: ele.cantidad + 1
-          }
-
-        }
-        return ele;
-
-
-    }
-
-    ))
-    
-  }
-
-  const emptyCart = () =>{
-
-    setCart([]);
-
-  }
-
-  const removeProduct = (id) =>{
-
-    setCart( (prevState) => prevState.filter( item => item.id!== id))
-
-  }
-
-
+ 
+  const {data, addToCart, cart, decreaseQuantity, increaseQuantity, emptyCart, removeProduct,isEmpty, totalToPay} = useCart();
 
   return (
     <>
@@ -123,7 +24,10 @@ function App() {
         increaseQuantity={increaseQuantity}
         emptyCart={emptyCart}
         removeProduct={removeProduct}
-         />
+        isEmpty={isEmpty}
+        totalToPay={totalToPay}
+        
+        />
 
       <main>
         <div id="video-contenedor">

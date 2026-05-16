@@ -4,12 +4,8 @@ import { carrito, logo, lupa } from '../barrels/assets'
 
 
 
-function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart, removeProduct} ) {
+function Nav( {cart,increaseQuantity,decreaseQuantity , emptyCart, removeProduct, isEmpty, totalToPay} ) {
 
-    const isEmpty = useMemo( () => cart.length===0 ,[cart])
-
-    const totalToPay = useMemo( ()=>  cart.reduce(  (acumulador,itemActual)=> acumulador + (itemActual.precio * itemActual.cantidad)
-    ,0 )  ,[cart])
 
 
   return (
