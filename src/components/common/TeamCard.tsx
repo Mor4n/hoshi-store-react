@@ -1,6 +1,12 @@
-import React from 'react'
 
-function TeamCard({img,name,location,role}) {
+type TeamType = {
+  img: string,
+  name: string, 
+  location: string, 
+  role: string, 
+}
+
+function TeamCard({img,name,location,role} : TeamType) {
   return (
     <>
     <article className="equipo-card">

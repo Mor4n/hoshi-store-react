@@ -17,5 +17,9 @@ export type ProductType = {
     precioAnterior: number|null
 }
 
+export type ProductCartItem =  ProductType & {
+    
+    cantidad: number
 
+}
 
