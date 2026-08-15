@@ -76,43 +76,45 @@ function Nav( {cart,
             <div id="carrito">
                 { !isEmpty ?(
                     <>
-                    <table className="w-100 table">
-                    <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                        cart.map( item => (
-                        <tr key={item.id}>
-                            <td><img src={item.imagen} alt="" /></td>
-                            <td>{item.titulo}</td>
-                            <td>${item.precio}</td>
-                            <td>
-                                <div className="botones-cantidad">
-                                    <button type="button" onClick={()=>decreaseQuantity(item.id)} >-</button>
-                                    <span>{item.cantidad}</span>
-                                    <button type="button" onClick={()=>increaseQuantity(item.id)}>+</button>
-                                    <button type="button" onClick={()=>removeProduct(item.id)}>✖</button>
-                                </div>
-                            </td>
-                        </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-                <div className="carrito-total-container">
-                    <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">{totalToPay.toFixed(2)}</span></p>
-                </div>
-                <div id="botones-carrito">
-                    <button type="button" className="botones-accion-carrito vaciar" onClick={()=>emptyCart()}>Vaciar carrito</button>
-                    <button type="button" className="botones-accion-carrito comprar">Comprar</button>
-                </div>
+                    <div className="carrito-tabla-contenedor">
+                        <table className="w-100 table">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                            cart.map( item => (
+                            <tr key={item.id}>
+                                <td><img src={item.imagen} alt="" /></td>
+                                <td>{item.titulo}</td>
+                                <td>${item.precio}</td>
+                                <td>
+                                    <div className="botones-cantidad">
+                                        <button type="button" onClick={()=>decreaseQuantity(item.id)} >-</button>
+                                        <span>{item.cantidad}</span>
+                                        <button type="button" onClick={()=>increaseQuantity(item.id)}>+</button>
+                                        <button type="button" onClick={()=>removeProduct(item.id)}>✖</button>
+                                    </div>
+                                </td>
+                            </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+                    <div className="carrito-total-container">
+                        <p className="carrito-total">Total a pagar: $<span className="carrito-total-monto">{totalToPay.toFixed(2)}</span></p>
+                    </div>
+                    <div id="botones-carrito">
+                        <button type="button" className="botones-accion-carrito vaciar" onClick={()=>emptyCart()}>Vaciar carrito</button>
+                        <button type="button" className="botones-accion-carrito comprar">Comprar</button>
+                    </div>
                     </>
             
             ): <p>Agregue productos a su carrito!</p>}
