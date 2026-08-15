@@ -29,7 +29,7 @@ function PurchaseProcess() {
                             <div className="lista-contenedor" id="metodos-pago">
                                 <img src="https://www.consumoteca.com/wp-content/uploads/Logo-PayPal-jpg.webp"
                                     alt="Imagen del logo de Paypal" className="lista-contenedor-imagen"/>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Mercado_Pago.svg/1920px-Mercado_Pago.svg.png?utm_source=es.wikipedia.org&utm_campaign=parser&utm_content=thumbnail"
+                                <img src="https://images.seeklogo.com/logo-png/19/1/mercadopago-logo-png_seeklogo-199533.png"
                                     alt="Imagen del logo de Mercadopago" className="lista-contenedor-imagen"/>
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
                                     alt="Imagen del logo de Mastercard" className="lista-contenedor-imagen"/>
