@@ -9,6 +9,8 @@ type NavProps ={
     emptyCart:()=>void,
     isEmpty:boolean,
     totalToPay:number,
+    searchTerm: string,
+    setSearchTerm: (term: string) => void,
 }
 
 function Nav( {cart,
@@ -17,7 +19,9 @@ function Nav( {cart,
     emptyCart,
     removeProduct,
     isEmpty,
-    totalToPay}: NavProps ) {
+    totalToPay,
+    searchTerm,
+    setSearchTerm}: NavProps ) {
 
 
 
@@ -38,8 +42,28 @@ function Nav( {cart,
         </ul>
 
         <div className="buscar-contenedor">
-            <input type="text" placeholder="Ingrese aquí el producto a buscar" id="buscar-input"/>
-            <button type="button" id="buscar-boton">
+            <input 
+                type="text" 
+                placeholder="Ingrese aquí el producto a buscar" 
+                id="buscar-input"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        const catalogElem = document.getElementById('catalogo');
+                        if (catalogElem) catalogElem.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }}
+            />
+            <button 
+                type="button" 
+                id="buscar-boton"
+                aria-label="Buscar producto"
+                onClick={() => {
+                    const catalogElem = document.getElementById('catalogo');
+                    if (catalogElem) catalogElem.scrollIntoView({ behavior: 'smooth' });
+                }}
+            >
                 <img src={lupa} alt="Ícono de lupa" id="buscar-imagen"/>
             </button>
         </div>

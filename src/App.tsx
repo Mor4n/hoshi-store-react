@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { flecha, tienda_online } from "./barrels/assets";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
@@ -5,19 +6,31 @@ import ProductCatalog from "./components/ProductCatalog";
 import PurchaseProcess from "./components/PurchaseProcess";
 import About from "./components/About";
 import Reviews from "./components/Reviews";
-import useCart  from "./hooks/useCart";
+import useCart from "./hooks/useCart";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
 function App() {
- 
-  const {data, addToCart, cart, decreaseQuantity, increaseQuantity, emptyCart, removeProduct,isEmpty, totalToPay} = useCart();
+  const [selectedCategory, setSelectedCategory] = useState<string>("todos");
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const {
+    data,
+    addToCart,
+    cart,
+    decreaseQuantity,
+    increaseQuantity,
+    emptyCart,
+    removeProduct,
+    isEmpty,
+    totalToPay,
+  } = useCart();
 
   return (
     <>
       <Header />
 
-      <Nav 
+      <Nav
         cart={cart}
         decreaseQuantity={decreaseQuantity}
         increaseQuantity={increaseQuantity}
@@ -25,8 +38,9 @@ function App() {
         removeProduct={removeProduct}
         isEmpty={isEmpty}
         totalToPay={totalToPay}
-        
-        />
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
 
       <main>
         <div id="video-contenedor">
@@ -42,9 +56,13 @@ function App() {
           ></video>
         </div>
 
-        <ProductCatalog 
-        data={data} 
-        addToCart={addToCart}
+        <ProductCatalog
+          data={data}
+          addToCart={addToCart}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
         />
 
         <PurchaseProcess />

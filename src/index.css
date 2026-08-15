@@ -439,21 +439,82 @@ section p{
     cursor: pointer;
     padding: 20px;
     border: 4px solid black;
-    margin: 20px;
+    margin: 15px;
     width: 10%;
+    min-width: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: rgb(0, 0, 0) 7px 10px 0px;
-    transition: box-shadow .25s ease,transform .25s ease ; 
+    transition: box-shadow .25s ease,transform .25s ease, background-color .25s ease, color .25s ease ; 
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: inherit;
 }
 .catalogo-categoria:hover{
     transition: .25s ease;
     box-shadow: 10px 10px 0px rgb(255, 0, 0);
     transform: translate(-2px, -2px);
 }
+.catalogo-categoria.activa{
+    background-color: #e60012;
+    color: #FFFFFF;
+    box-shadow: 7px 10px 0px #000000;
+    transform: translate(-2px, -2px);
+}
+.catalogo-categoria.activa:hover{
+    box-shadow: 10px 10px 0px #000000;
+    background-color: #c4000f;
+}
 .catalogo-categoria-texto{
     font-weight: 900;
+}
+
+.catalogo-busqueda-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto 10px;
+    font-size: 19px;
+    text-align: center;
+}
+
+.limpiar-busqueda-btn{
+    background-color: #e60012;
+    color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.limpiar-busqueda-btn:hover{
+    transform: scale(1.15);
+    background-color: #000000;
+}
+
+.catalogo-vacio{
+    text-align: center;
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 500px;
+    background-color: #ffffff;
+    border: 4px solid #000000;
+    box-shadow: 7px 10px 0px #000000;
+}
+
+.catalogo-reset-btn{
+    max-width: 250px;
+    margin: 20px auto 0;
+    display: block;
 }
 
 /* partecita de los productos (la tarjeta en si) */

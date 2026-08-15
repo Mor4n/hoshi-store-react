@@ -1,5 +1,5 @@
-import React from 'react'
 import TeamCard from './common/TeamCard'
+import { aguaprieta } from '../barrels/assets'
 
 function About() {
   return (
@@ -26,7 +26,7 @@ function About() {
 
                 </div>
                 <div className="sobre-contenedor-imagen">
-                    <img src="./img/aguaprieta.png" alt="Imagen de Agua Prieta" id="sobre-imagen"/>
+                    <img src={aguaprieta} alt="Imagen de Agua Prieta" id="sobre-imagen"/>
                 </div>
 
             </div>
